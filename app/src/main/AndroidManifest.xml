@@ -16,6 +16,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".BioFragment"
+            android:parentActivityName=".MainActivity" >
+        </activity>
+        <activity android:name=".VaccinationFragment"
+            android:parentActivityName=".MainActivity" >
+        </activity>
+        <activity android:name=".AnniversaryFragment"
+            android:parentActivityName=".MainActivity" >
+        </activity>
+        <activity android:name=".AboutUsFragment"
+            android:parentActivityName=".MainActivity" >
+        </activity>
+
     </application>
 
 </manifest>
