@@ -29,10 +29,8 @@ public class CustomAdapter {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.row, parent, false);
         name = (TextView) rowView.findViewById(R.id.tvName);
-        expiry = (TextView) rowView.findViewById(R.id.tvExpiryRow);
-        Drawer inventory = inventorys.get(position);
-        name.setText(inventory.getName());
-        expiry.setText(inventory.getExpiry());
+        Drawer drawer = drawerlist.get(position);
+        name.setText(drawer.getName());
 
         return rowView;
     }
