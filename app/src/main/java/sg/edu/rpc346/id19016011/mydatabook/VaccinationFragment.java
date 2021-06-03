@@ -98,7 +98,7 @@ public class VaccinationFragment extends Fragment {
 
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
                         SharedPreferences.Editor prefEdit = prefs.edit();
-                        prefEdit.putString("currMessage", message);
+                        prefEdit.putString("currMessageVaccination", message);
                         prefEdit.commit();
                     }
                 });
@@ -116,7 +116,7 @@ public class VaccinationFragment extends Fragment {
     public void onResume() {
         super.onResume();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String currMessage = prefs.getString("currMessage","");
+        String currMessage = prefs.getString("currMessageVaccination","");
         tvDisplayVaccination.setText(currMessage);
     }
 }
