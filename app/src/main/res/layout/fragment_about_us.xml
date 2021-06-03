@@ -11,4 +11,9 @@
         android:layout_height="match_parent"
         android:text="fragment about us page" />
 
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="300dp"
+        android:layout_height="300dp" />
+
 </FrameLayout>
