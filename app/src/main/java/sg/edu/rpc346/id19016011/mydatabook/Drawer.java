@@ -1,6 +1,8 @@
 package sg.edu.rpc346.id19016011.mydatabook;
 
-public class Drawer {
+import java.io.Serializable;
+
+public class Drawer implements Serializable {
     private String name;
 
     public Drawer(String name) {

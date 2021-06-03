@@ -22,6 +22,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
+
 //Test push
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     CustomAdapter aa;
     String currentTitle;
     ActionBar ab;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         drawerItems.add("Anniversary");
         drawerItems.add("About us");
         ab = getSupportActionBar();
+
 
         aa = new CustomAdapter(this,
                 R.layout.row, drawerItems);
