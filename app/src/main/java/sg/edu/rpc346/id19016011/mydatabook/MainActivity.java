@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList drawerItems;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
-    CustomAdapter<Drawer> aa;
+    CustomAdapter aa;
     String currentTitle;
     ActionBar ab;
 

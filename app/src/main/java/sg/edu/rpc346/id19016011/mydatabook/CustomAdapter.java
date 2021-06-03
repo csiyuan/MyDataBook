@@ -34,7 +34,6 @@ public class CustomAdapter extends ArrayAdapter<Drawer> {
         name.setText(drawer.getName());
         iv = rowView.findViewById(R.id.iv);
             if(drawer.getName().equals("Bio")){
-                //iv.setImageResource(android.R.drawable.ic_dialog_info);
                 iv.setImageResource(android.R.drawable.ic_dialog_info);
             }else if(drawer.getName().equals("Vaccination")){
                 iv.setImageResource(android.R.drawable.ic_menu_edit);
