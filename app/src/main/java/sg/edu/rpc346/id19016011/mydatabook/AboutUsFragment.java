@@ -69,8 +69,8 @@ public class  AboutUsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_about_us, container, false);
 
         tvAuthors = view.findViewById(R.id.textViewAuthors);
-        tvModule = view.findViewById(R.id.iv);
-        iv = view.findViewById(R.id.textViewModule);
+        tvModule = view.findViewById(R.id.textViewModule);
+        iv = view.findViewById(R.id.iv);
 
         tvAuthors.setText("Created by: Yee Hung");
         tvModule.setText("C347 - Android Programming II Republic Polytechnic");
