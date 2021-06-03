@@ -68,8 +68,6 @@ public class AnniversaryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_anniversary, container, false);
 
         btnEditAnniversary = view.findViewById(R.id.btnEditAnniversary);
@@ -78,12 +76,9 @@ public class AnniversaryFragment extends Fragment {
         btnEditAnniversary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Inflate the input.xml layout file
                 LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 View viewDialog = inflater.inflate(R.layout.input_dialog, null);
 
-                //Obtain the UI component in the input.xml layout
-                //It needs to be defined as "final" so that it can used in the onClick() method later
                 final EditText etInput = viewDialog.findViewById(R.id.etInput);
 
                 AlertDialog.Builder myBuilder = new AlertDialog.Builder(getActivity());
@@ -92,9 +87,7 @@ public class AnniversaryFragment extends Fragment {
                 myBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // Extract the text entered by the user
                         String message = etInput.getText().toString();
-                        // Set the text to the TextView
                         tvDisplayAnniversary.setText(message);
 
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -106,8 +99,6 @@ public class AnniversaryFragment extends Fragment {
                 myBuilder.setNegativeButton("CANCEL", null);
                 AlertDialog myDialog = myBuilder.create();
                 myDialog.show();
-
-
             }
         });
         return view;
