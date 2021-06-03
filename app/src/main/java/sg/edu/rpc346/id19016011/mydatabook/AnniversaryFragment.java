@@ -24,6 +24,7 @@ import android.widget.TextView;
 public class AnniversaryFragment extends Fragment {
     Button btnEditAnniversary;
     TextView tvDisplayAnniversary;
+    EditText etInput;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -72,6 +73,7 @@ public class AnniversaryFragment extends Fragment {
 
         btnEditAnniversary = view.findViewById(R.id.btnEditAnniversary);
         tvDisplayAnniversary = view.findViewById(R.id.tvDisplayAnniversary);
+        etInput = view.findViewById(R.id.etInput);
 
         btnEditAnniversary.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +86,8 @@ public class AnniversaryFragment extends Fragment {
                 AlertDialog.Builder myBuilder = new AlertDialog.Builder(getActivity());
                 myBuilder.setView(viewDialog);
                 myBuilder.setTitle("Edit Bio");
+                String preloadMessage = tvDisplayAnniversary.getText().toString();
+                etInput.setText(preloadMessage);
                 myBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
