@@ -24,6 +24,7 @@ import android.widget.TextView;
 public class VaccinationFragment extends Fragment {
     Button btnEditVaccination;
     TextView tvDisplayVaccination;
+    EditText etInput;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -72,6 +73,7 @@ public class VaccinationFragment extends Fragment {
 
         btnEditVaccination = view.findViewById(R.id.btnEditVaccination);
         tvDisplayVaccination = view.findViewById(R.id.tvDisplayVaccination);
+        etInput = view.findViewById(R.id.etInput);
 
         btnEditVaccination.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +86,8 @@ public class VaccinationFragment extends Fragment {
                 AlertDialog.Builder myBuilder = new AlertDialog.Builder(getActivity());
                 myBuilder.setView(viewDialog);
                 myBuilder.setTitle("Edit Bio");
+                String preloadMessage = tvDisplayVaccination.getText().toString();
+                etInput.setText(preloadMessage);
                 myBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
