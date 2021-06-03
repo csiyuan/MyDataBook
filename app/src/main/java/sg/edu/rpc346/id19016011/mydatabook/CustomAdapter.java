@@ -33,17 +33,19 @@ public class CustomAdapter extends ArrayAdapter<Drawer> {
         name = (TextView) rowView.findViewById(R.id.tvName);
         Drawer drawer = drawerlist.get(position);
         name.setText(drawer.getName());
-
         iv = rowView.findViewById(R.id.iv);
-        if(name.getText() == "Bio"){
-            iv.setImageResource(android.R.drawable.ic_dialog_info);
-        }else if(name.getText() == "Vaccination"){
-            iv.setImageResource(android.R.drawable.ic_menu_edit);
-        }else if(name.getText() == "Anniversary"){
-            iv.setImageResource(android.R.drawable.ic_menu_my_calendar);
-        }else if(name.getText() == "About Us"){
-            iv.setImageResource(android.R.drawable.btn_star_big_on);
-        }
+            if(drawer.getName().equals("Bio")){
+                //iv.setImageResource(android.R.drawable.ic_dialog_info);
+                iv.setImageResource(android.R.drawable.ic_dialog_info);
+            }else if(drawer.getName().equals("Vaccination")){
+                iv.setImageResource(android.R.drawable.ic_menu_edit);
+            }else if(drawer.getName().equals("Anniversary")){
+                iv.setImageResource(android.R.drawable.ic_menu_my_calendar);
+            }else if(drawer.getName().equals("About Us")){
+                iv.setImageResource(android.R.drawable.btn_star_big_on);
+            }
+
+
 
         return rowView;
     }

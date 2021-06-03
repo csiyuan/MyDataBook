@@ -16,16 +16,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 //Test push
 public class MainActivity extends AppCompatActivity {
 
-    private ActionBarDrawerToggle drawerToggle;
-    private String[] drawerItems;
+    ArrayList drawerItems;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
-    ArrayAdapter<String> aa;
+    CustomAdapter<Drawer> aa;
     String currentTitle;
     ActionBar ab;
 
@@ -36,11 +37,16 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
         drawerList = findViewById(R.id.left_drawer);
-        drawerItems = new String[] { "Bio", "Vaccination", "Anniversary", "About Us" };
+
+        drawerItems = new ArrayList();
+        drawerItems.add("Bio");
+        drawerItems.add("Vaccination");
+        drawerItems.add("Anniversary");
+        drawerItems.add("About us");
         ab = getSupportActionBar();
 
-        aa = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_activated_1, drawerItems);
+        aa = new CustomAdapter(this,
+                R.layout.row, drawerItems);
         drawerList.setAdapter(aa);
 
         FloatingActionButton fab = findViewById(R.id.fab);
