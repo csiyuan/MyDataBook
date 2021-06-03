@@ -1,12 +1,20 @@
 package sg.edu.rpc346.id19016011.mydatabook;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +22,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class VaccinationFragment extends Fragment {
+    Button btnEditVaccination;
+    TextView tvDisplayVaccination;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +69,54 @@ public class VaccinationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_vaccination, container, false);
+        View view = inflater.inflate(R.layout.fragment_vaccination, container, false);
+
+        btnEditVaccination = view.findViewById(R.id.btnEditVaccination);
+        tvDisplayVaccination = view.findViewById(R.id.tvDisplayVaccination);
+
+        btnEditVaccination.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Inflate the input.xml layout file
+                LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View viewDialog = inflater.inflate(R.layout.input_dialog, null);
+
+                //Obtain the UI component in the input.xml layout
+                //It needs to be defined as "final" so that it can used in the onClick() method later
+                final EditText etInput = viewDialog.findViewById(R.id.etInput);
+
+                AlertDialog.Builder myBuilder = new AlertDialog.Builder(getActivity());
+                myBuilder.setView(viewDialog);
+                myBuilder.setTitle("Edit Bio");
+                myBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Extract the text entered by the user
+                        String message = etInput.getText().toString();
+                        // Set the text to the TextView
+                        tvDisplayVaccination.setText(message);
+
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                        SharedPreferences.Editor prefEdit = prefs.edit();
+                        prefEdit.putString("currMessage", message);
+                        prefEdit.commit();
+                    }
+                });
+                myBuilder.setNegativeButton("CANCEL", null);
+                AlertDialog myDialog = myBuilder.create();
+                myDialog.show();
+
+
+            }
+        });
+
+        return view;
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String currMessage = prefs.getString("currMessage","");
+        tvDisplayVaccination.setText(currMessage);
     }
 }

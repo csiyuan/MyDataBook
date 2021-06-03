@@ -22,8 +22,8 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class BioFragment extends Fragment {
-    Button btnEdit;
-    TextView tvDisplay;
+    Button btnEditBio;
+    TextView tvDisplayBio;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -71,10 +71,10 @@ public class BioFragment extends Fragment {
         // Inflate the layout for this fragment
          View view = inflater.inflate(R.layout.fragment_bio, container, false);
 
-        btnEdit = view.findViewById(R.id.btnEdit);
-        tvDisplay = view.findViewById(R.id.tvDisplay);
+        btnEditBio = view.findViewById(R.id.btnEditBio);
+        tvDisplayBio = view.findViewById(R.id.tvDisplayBio);
 
-        btnEdit.setOnClickListener(new View.OnClickListener() {
+        btnEditBio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Inflate the input.xml layout file
@@ -94,11 +94,11 @@ public class BioFragment extends Fragment {
                         // Extract the text entered by the user
                         String message = etInput.getText().toString();
                         // Set the text to the TextView
-                        tvDisplay.setText(message);
+                        tvDisplayBio.setText(message);
 
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
                         SharedPreferences.Editor prefEdit = prefs.edit();
-                        prefEdit.putString("message", message);
+                        prefEdit.putString("currMessage", message);
                         prefEdit.commit();
                     }
                 });
@@ -111,8 +111,12 @@ public class BioFragment extends Fragment {
         });
 
         return view;
-
-
-
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String currMessage = prefs.getString("currMessage","");
+        tvDisplayBio.setText(currMessage);
     }
 }
