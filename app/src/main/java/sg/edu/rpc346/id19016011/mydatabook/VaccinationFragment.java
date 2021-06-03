@@ -85,7 +85,7 @@ public class VaccinationFragment extends Fragment {
 
                 AlertDialog.Builder myBuilder = new AlertDialog.Builder(getActivity());
                 myBuilder.setView(viewDialog);
-                myBuilder.setTitle("Edit Bio");
+                myBuilder.setTitle("Edit Vaccination");
                 String preloadMessage = tvDisplayVaccination.getText().toString();
                 etInput.setText(preloadMessage);
                 myBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {

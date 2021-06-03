@@ -85,7 +85,7 @@ public class AnniversaryFragment extends Fragment {
 
                 AlertDialog.Builder myBuilder = new AlertDialog.Builder(getActivity());
                 myBuilder.setView(viewDialog);
-                myBuilder.setTitle("Edit Bio");
+                myBuilder.setTitle("Edit Anniversary");
                 String preloadMessage = tvDisplayAnniversary.getText().toString();
                 etInput.setText(preloadMessage);
                 myBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
