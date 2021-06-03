@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -74,7 +75,6 @@ public class  AboutUsFragment extends Fragment {
 
         tvAuthors.setText("Created by: Yee Hung");
         tvModule.setText("C347 - Android Programming II Republic Polytechnic");
-
         String imageUrl = "https://upload.wikimedia.org/wikipedia/commons/8/80/Republic_Polytechnic_Logo.jpg";
         Picasso.with(view.getContext()).load(imageUrl).into(iv);
 
@@ -82,4 +82,5 @@ public class  AboutUsFragment extends Fragment {
 
         return view;
     }
+
 }
