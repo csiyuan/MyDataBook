@@ -18,6 +18,10 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+
 //Test push
 public class MainActivity extends AppCompatActivity {
 
@@ -47,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
         aa = new CustomAdapter(this,
                 R.layout.row, drawerItems);
         drawerList.setAdapter(aa);
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.openDrawer(drawerList);
+            }
+        });
 
         // Set the list's click listener
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
