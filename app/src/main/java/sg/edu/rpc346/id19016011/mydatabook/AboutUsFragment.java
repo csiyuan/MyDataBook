@@ -71,12 +71,12 @@ public class  AboutUsFragment extends Fragment {
 
         tvAuthors = view.findViewById(R.id.textViewAuthors);
         tvModule = view.findViewById(R.id.textViewModule);
-        iv = view.findViewById(R.id.iv);
+        iv = view.findViewById(R.id.ivAbout);
 
         tvAuthors.setText("Created by: Yee Hung");
         tvModule.setText("C347 - Android Programming II Republic Polytechnic");
         String imageUrl = "https://upload.wikimedia.org/wikipedia/commons/8/80/Republic_Polytechnic_Logo.jpg";
-        Picasso.with(view.getContext()).load(imageUrl).into(iv);
+        Picasso.with(getContext()).load(imageUrl).placeholder(R.drawable.ajax_loader).error(R.drawable.error).into(iv);
 
 
 
