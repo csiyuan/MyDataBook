@@ -24,7 +24,6 @@ public class CustomAdapter extends ArrayAdapter<Drawer> {
         this.context = context;
         this.resource= resource;
     }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context
@@ -44,9 +43,6 @@ public class CustomAdapter extends ArrayAdapter<Drawer> {
             }else if(drawer.getName().equals("About Us")){
                 iv.setImageResource(android.R.drawable.btn_star_big_on);
             }
-
-
-
         return rowView;
     }
 }

@@ -21,6 +21,7 @@ import java.util.ArrayList;
 //Test push
 public class MainActivity extends AppCompatActivity {
 
+    private ActionBarDrawerToggle drawerToggle;
     ArrayList drawerItems;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 // Highlight the selected item,
                 //  update the title, and close the drawer
                 drawerList.setItemChecked(position, true);
-                currentTitle = drawerItems[position];
+                currentTitle = (String) drawerItems.get(position);
                 ab.setTitle(currentTitle);
                 drawerLayout.closeDrawer(drawerList);
             }
