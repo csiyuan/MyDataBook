@@ -90,6 +90,7 @@ public class BioFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         String message = etInput.getText().toString();
                         tvDisplayBio.setText(message);
+                        
 
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
                         SharedPreferences.Editor prefEdit = prefs.edit();
