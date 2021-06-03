@@ -15,6 +15,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 //Test push
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
         aa = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_activated_1, drawerItems);
         drawerList.setAdapter(aa);
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.openDrawer(drawerList);
+            }
+        });
 
         // Set the list's click listener
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
