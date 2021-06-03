@@ -17,7 +17,7 @@ import com.squareup.picasso.Picasso;
  * Use the {@link AboutUsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AboutUsFragment extends Fragment {
+public class  AboutUsFragment extends Fragment {
 
     ImageView iv;
     TextView tvAuthors, tvModule;
