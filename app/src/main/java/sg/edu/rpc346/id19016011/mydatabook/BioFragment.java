@@ -24,6 +24,7 @@ import android.widget.TextView;
 public class BioFragment extends Fragment {
     Button btnEditBio;
     TextView tvDisplayBio;
+    EditText etInput;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,6 +74,7 @@ public class BioFragment extends Fragment {
 
         btnEditBio = view.findViewById(R.id.btnEditBio);
         tvDisplayBio = view.findViewById(R.id.tvDisplayBio);
+        etInput = view.findViewById(R.id.etInput);
 
         btnEditBio.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,12 +87,13 @@ public class BioFragment extends Fragment {
                 AlertDialog.Builder myBuilder = new AlertDialog.Builder(getActivity());
                 myBuilder.setView(viewDialog);
                 myBuilder.setTitle("Edit Bio");
+                String preloadMessage = tvDisplayBio.getText().toString();
+                etInput.setText(preloadMessage);
                 myBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String message = etInput.getText().toString();
                         tvDisplayBio.setText(message);
-                        
 
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
                         SharedPreferences.Editor prefEdit = prefs.edit();
