@@ -7,13 +7,20 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link AboutUsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AboutUsFragment extends Fragment {
+public class  AboutUsFragment extends Fragment {
+
+    ImageView iv;
+    TextView tvAuthors, tvModule;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +66,20 @@ public class AboutUsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_about_us, container, false);
+        View view = inflater.inflate(R.layout.fragment_about_us, container, false);
+
+        tvAuthors = view.findViewById(R.id.textViewAuthors);
+        tvModule = view.findViewById(R.id.iv);
+        iv = view.findViewById(R.id.textViewModule);
+
+        tvAuthors.setText("Created by: Yee Hung");
+        tvModule.setText("C347 - Android Programming II Republic Polytechnic");
+
+        String imageUrl = "https://upload.wikimedia.org/wikipedia/commons/8/80/Republic_Polytechnic_Logo.jpg";
+        Picasso.with(view.getContext()).load(imageUrl).into(iv);
+
+
+
+        return view;
     }
 }
